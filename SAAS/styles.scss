@@ -1,0 +1,14 @@
+$primary: #3ED3DE;
+
+body{
+    background-image: url(../css/assets/img/fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.temps{
+    font-size: 11px;
+}
+
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss"
+

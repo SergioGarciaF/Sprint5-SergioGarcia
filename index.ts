@@ -10,5 +10,8 @@ function mostrarAcudit() {
     }
     fetch("https://icanhazdadjoke.com", options)
         .then(res => res.json())
-        .then(response => console.log(response.joke));
+        .then(response => {
+            const acuditEl = document.getElementById("acudit");
+            acuditEl.textContent = response.joke;
+        });
 }
