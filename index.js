@@ -1,5 +1,13 @@
 "use strict";
 const reportJokes = [];
+//API para recibir el tiempo
+fetch("https://www.el-tiempo.net/api/json/v2/provincias/08/municipios/08001")
+    .then(res => res.json())
+    .then(data => {
+    const weather = document.getElementById("weather");
+    const stateDescription = data.stateSky.description; // Accede a la descripción del estado del cielo
+    weather.textContent = stateDescription;
+});
 function mostrarAcudit() {
     const options = {
         method: 'GET',
@@ -7,6 +15,17 @@ function mostrarAcudit() {
             'Accept': 'application/json'
         }
     };
+    //API para recibir el tiempo
+    const options2 = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '1a5d4bc9admsh375c459b013d082p16e7cbjsn290ccc6cd6f5',
+            'X-RapidAPI-Host': 'ai-weather-by-meteosource.p.rapidapi.com'
+        }
+    };
+    fetch("https://ai-weather-by-meteosource.p.rapidapi.com/current?lat=37.81021&lon=-122.42282&timezone=auto&language=es&units=auto", options2)
+        .then(res => console.log(res));
+    //API para recibir chistes
     fetch("https://icanhazdadjoke.com", options)
         .then(res => res.json())
         .then(response => {
