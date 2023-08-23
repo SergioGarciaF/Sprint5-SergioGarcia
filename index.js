@@ -15,8 +15,26 @@ function mostrarAcudit() {
             'Accept': 'application/json'
         }
     };
+    //Agregamos options a la segunda API
+    const options2 = {
+        method: 'GET',
+        url: 'https://api.api-ninjas.com/v1/chucknorris',
+        headers: { 'X-Api-Key': 'gMYvkibOftXUIEQXQjIQeg==m2Q9gBPEjg0QpKln' },
+        contentType: 'application/json'
+    };
     //API para recibir chistes
-    fetch("https://icanhazdadjoke.com", options)
+    //Juntamos APIS y sus opciones en un array de objetos
+    const urlsApis = [
+        { url: "https://icanhazdadjoke.com", options: options },
+        { url: "https://api.api-ninjas.com/v1/chucknorris", options: options2 }
+    ];
+    //Creamos constante para que elija urls aleatorias
+    const indice = Math.floor(Math.random() * urlsApis.length);
+    //Creamos constantes para las urls y las opciones
+    const urlAleatoria = urlsApis[indice];
+    const apiAleatoria = urlsApis[indice];
+    //Hacemos fetch con las ultimas constantes para acceder a APIS
+    fetch(urlAleatoria.url, apiAleatoria.options)
         .then(res => res.json())
         .then(response => {
         const chiste = document.getElementById("acudit");
