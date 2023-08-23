@@ -15,16 +15,6 @@ function mostrarAcudit() {
             'Accept': 'application/json'
         }
     };
-    //API para recibir el tiempo
-    const options2 = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '1a5d4bc9admsh375c459b013d082p16e7cbjsn290ccc6cd6f5',
-            'X-RapidAPI-Host': 'ai-weather-by-meteosource.p.rapidapi.com'
-        }
-    };
-    fetch("https://ai-weather-by-meteosource.p.rapidapi.com/current?lat=37.81021&lon=-122.42282&timezone=auto&language=es&units=auto", options2)
-        .then(res => console.log(res));
     //API para recibir chistes
     fetch("https://icanhazdadjoke.com", options)
         .then(res => res.json())
